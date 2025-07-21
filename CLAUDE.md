@@ -2,23 +2,22 @@
 - **Always read `PLANNING.md`** at the start of a new conversation to understand the project's architecture, goals, style, and constraints.
 - **Check `TASK.md`** before starting a new task. If the task isn’t listed, add it with a brief description and today's date.
 - **Use consistent naming conventions, file structure, and architecture patterns** as described in `PLANNING.md`.
-- **Use venv_linux** (the virtual environment) whenever executing Python commands, including for unit tests.
 
 ### 🧱 Code Structure & Modularity
-- **Never create a file longer than 500 lines of code.** If a file approaches this limit, refactor by splitting it into modules or helper files.
+- **Never create a file longer than 1000 lines of code.** If a file approaches this limit, refactor by splitting it into modules or helper files.
 - **Organize code into clearly separated modules**, grouped by feature or responsibility.
   For agents this looks like:
-    - `agent.py` - Main agent definition and execution logic 
-    - `tools.py` - Tool functions used by the agent 
-    - `prompts.py` - System prompts
+    - `agent.swift` - Main agent definition and execution logic 
+    - `tools.swift` - Tool functions used by the agent 
+    - `prompts.swift` - System prompts
 - **Use clear, consistent imports** (prefer relative imports within packages).
 - **Use clear, consistent imports** (prefer relative imports within packages).
-- **Use python_dotenv and load_env()** for environment variables.
+- Use https://github.com/yonaskolb/XcodeGen to generate Xcode project files.
 
 ### 🧪 Testing & Reliability
-- **Always create Pytest unit tests for new features** (functions, classes, routes, etc).
+- **Always create Swift Testing unit tests for new features** (functions, classes, routes, etc). Refer to `examples/unit_tests.swift` for examples. Related documentation: https://developer.apple.com/documentation/testing
 - **After updating any logic**, check whether existing unit tests need to be updated. If so, do it.
-- **Tests should live in a `/tests` folder** mirroring the main app structure.
+- **Tests should live in an iOS tests folder** mirroring the main app structure.
   - Include at least:
     - 1 test for expected use
     - 1 edge case
@@ -29,22 +28,31 @@
 - Add new sub-tasks or TODOs discovered during development to `TASK.md` under a “Discovered During Work” section.
 
 ### 📎 Style & Conventions
-- **Use Python** as the primary language.
-- **Follow PEP8**, use type hints, and format with `black`.
-- **Use `pydantic` for data validation**.
-- Use `FastAPI` for APIs and `SQLAlchemy` or `SQLModel` for ORM if applicable.
-- Write **docstrings for every function** using the Google style:
-  ```python
-  def example():
-      """
-      Brief summary.
-
-      Args:
-          param1 (type): Description.
-
-      Returns:
-          type: Description.
-      """
+- **Use Swift** as the primary language.
+- **Use SwiftUI** for UI.
+- **Use Swift Concurrency** for async operations.
+- Use **Swift 6 strict concurrency** rules. Refer to `examples/swift-6-strict-concurrency.md` for more details.
+- **Use SwiftUI** for UI.
+- Use **2 spaces** for indentation.
+- Write **docstrings for every function** using the following style:
+  ```swift
+  /// Produce a greeting string for the given `subject`.
+  ///
+  /// ```
+  /// print(hello("world")) // "Hello, world!"
+  /// ```
+  ///
+  /// > Warning: The returned greeting is not localized. To
+  /// > produce a localized string, use ``localizedHello(_:)``
+  /// > instead.
+  ///
+  /// - Parameters:
+  ///     - subject: The subject to be welcomed.
+  ///
+  /// - Returns: A greeting for the given `subject`.
+  func hello(_ subject: String) -> String {
+    return "Hello, \(subject)!"
+  }
   ```
 
 ### 📚 Documentation & Explainability
@@ -54,6 +62,6 @@
 
 ### 🧠 AI Behavior Rules
 - **Never assume missing context. Ask questions if uncertain.**
-- **Never hallucinate libraries or functions** – only use known, verified Python packages.
+- **Never hallucinate libraries or functions** – only use known, verified Swift packages.
 - **Always confirm file paths and module names** exist before referencing them in code or tests.
 - **Never delete or overwrite existing code** unless explicitly instructed to or if part of a task from `TASK.md`.

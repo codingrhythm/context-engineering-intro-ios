@@ -58,11 +58,11 @@ Template optimized for AI agents to implement features with sufficient context a
 ```
 
 ### Known Gotchas of our codebase & Library Quirks
-```python
-# CRITICAL: [Library name] requires [specific setup]
-# Example: FastAPI requires async functions for endpoints
-# Example: This ORM doesn't support batch inserts over 1000 records
-# Example: We use pydantic v2 and  
+```swift
+// CRITICAL: [Library name] requires [specific setup]
+// Example: FastAPI requires async functions for endpoints
+// Example: This ORM doesn't support batch inserts over 1000 records
+// Example: We use pydantic v2 and  
 ```
 
 ## Implementation Blueprint
@@ -70,7 +70,7 @@ Template optimized for AI agents to implement features with sufficient context a
 ### Data models and structure
 
 Create the core data models, we ensure type safety and consistency.
-```python
+```swift
 Examples: 
  - orm models
  - pydantic models

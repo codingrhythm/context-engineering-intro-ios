@@ -40,13 +40,9 @@ Using PRPs/templates/prp_base.md as template:
 - Include error handling strategy
 - list tasks to be completed to fullfill the PRP in the order they should be completed
 
-### Validation Gates (Must be Executable) eg for python
+### Validation Gates (Must be Executable) eg for iOS/Swift
 ```bash
-# Syntax/Style
-ruff check --fix && mypy .
-
-# Unit Tests
-uv run pytest tests/ -v
+xcodebuild test -workspace 'MyWorkspace.xcworkspace' -scheme 'SchemaTests' -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=26.0'
 
 ```
 
